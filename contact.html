@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Contacto | LOTOANIMALITOS - Consultoría de Loterías y Animalitos</title>
+    <meta name="keywords" content="contacto loterías venezuela, pronósticos animalitos, consultoría lotto activo, datos granja millonaria, soporte loterías">
+    <meta name="description" content="Comunícate con el Dr. Animalitos para consultoría personalizada, pronósticos exclusivos y estrategias ganadoras para loterías venezolanas.">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <style>
+        /* Estilos adicionales para la página de contacto */
+        .contact-header {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3b 100%);
+            padding: 60px 0;
+            margin-bottom: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path fill="white" d="M20,50 Q30,35 40,50 T60,50 T80,50 L80,80 L20,80 Z"/><circle cx="50" cy="30" r="8"/></svg>') repeat;
+            opacity: 0.1;
+        }
+        
+        .contact-header h1 {
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2d5a3b, #1a472a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1);
+        }
+        
+        .contact-icon i {
+            font-size: 35px;
+            color: white;
+        }
+        
+        .contact-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1a472a;
+        }
+        
+        .contact-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .contact-link {
+            display: inline-block;
+            color: #2d5a3b;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #ffd700;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: #1a472a;
+            border-bottom-color: #1a472a;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-control {
+            height: 55px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: #2d5a3b;
+            box-shadow: 0 0 0 0.2rem rgba(45,90,59,0.25);
+        }
+        
+        textarea.form-control {
+            height: auto;
+            resize: vertical;
+        }
+        
+        .btn-send {
+            background: linear-gradient(135deg, #2d5a3b, #1a472a);
+            border: none;
+            padding: 15px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-send:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(45,90,59,0.3);
+        }
+        
+        .info-section {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 60px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .info-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2d5a3b, #1a472a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .info-icon i {
+            font-size: 20px;
+            color: white;
+        }
+        
+        .info-text h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #1a472a;
+        }
+        
+        .info-text p {
+            margin: 0;
+            color: #666;
+        }
+        
+        .social-links-contact {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: #2d5a3b;
+            font-size: 20px;
+        }
+        
+        .social-icon:hover {
+            background: linear-gradient(135deg, #2d5a3b, #1a472a);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .ad-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-header h1 {
+                font-size: 2rem;
+            }
+            .form-container {
+                padding: 25px;
+            }
+            .contact-card {
+                margin-bottom: 20px;
+            }
+        }
+        
+        .alert {
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .disclaimer {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #856404;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">LOTO</span>ANIMALITOS</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="index.html" class="nav-item nav-link">Inicio</a>
+                        <a href="service.html" class="nav-item nav-link">Servicios</a>
+                    </div>
+                    <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
+                        <h1 class="m-0 display-4 text-primary"><span class="text-secondary">LOTO</span>ANIMALITOS</h1>
+                    </a>
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="about.html" class="nav-item nav-link">Quiénes Somos</a>
+                        <a href="contact.html" class="nav-item nav-link active">Contacto</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Header Section -->
+    <div class="contact-header">
+        <div class="container text-center">
+            <h1>Hablemos de Estrategias</h1>
+            <p>Estoy aquí para ayudarte a mejorar tus pronósticos y aumentar tus oportunidades de éxito</p>
+        </div>
+    </div>
+
+    <!-- Contact Cards Section -->
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Directo</h3>
+                    <p>Consultas rápidas, estratregias personalizadas y soporte inmediato para tus jugadas.</p>
+                    <a href="https://wa.me/584141234567?text=Hola%20Dr.%20Animalitos%2C%20necesito%20ayuda%20con%20mis%20pron%C3%B3sticos" class="contact-link" target="_blank">Escríbeme ahora →</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-telegram-plane"></i>
+                    </div>
+                    <h3>Canal Telegram</h3>
+                    <p>Únete a mi canal exclusivo donde comparto los mejores datos, fijos y análisis diarios.</p>
+                    <a href="https://t.me/dranimalitos" class="contact-link" target="_blank">Unirme al canal →</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="far fa-envelope"></i>
+                    </div>
+                    <h3>Correo Profesional</h3>
+                    <p>Para consultoría detallada, alianzas comerciales o propuestas de colaboración.</p>
+                    <a href="mailto:alexandermata834@gmail.com" class="contact-link">Enviar correo →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="form-container">
+                    <h2 class="mb-4" style="color: #1a472a;">Solicita tu Consultoría</h2>
+                    <p class="mb-4">Completa el formulario y recibe asesoría personalizada para mejorar tus estrategias en las loterías de animalitos.</p>
+                    
+                    <form id="contactForm" action="https://formspree.io/f/tu-id-de-formspree" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Tu nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" class="form-control" name="phone" placeholder="Número de WhatsApp (opcional)">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="service">
+                                <option value="">Selecciona el servicio que necesitas</option>
+                                <option value="pronosticos">Pronósticos personalizados</option>
+                                <option value="tripletas">Estrategias para Tripletas</option>
+                                <option value="fijos">Análisis de Súper Fijos</option>
+                                <option value="estadisticas">Estadísticas avanzadas</option>
+                                <option value="consultoria">Consultoría completa</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" rows="5" placeholder="Cuéntame a qué lotería juegas y qué tipo de ayuda necesitas..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-send btn-primary w-100">Enviar Mensaje</button>
+                    </form>
+                    
+                    <div id="formMessage" style="display: none;" class="alert"></div>
+                    
+                    <div class="disclaimer">
+                        <i class="fas fa-shield-alt mr-2"></i> 
+                        Tus datos están seguros. No comparto información personal con terceros. La consultoría es solo con fines informativos y de entretenimiento.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-5">
+                <!-- Información adicional -->
+                <div class="info-section">
+                    <h3 class="mb-4" style="color: #1a472a;">Información de Contacto</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4>Oficina Virtual</h4>
+                            <p>Caracas, Venezuela (Atención en línea 24/7)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="far fa-clock"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4>Horario de Atención</h4>
+                            <p>Lunes a Viernes: 9:00 AM - 8:00 PM<br>Sábados: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4>+12 Años de Experiencia</h4>
+                            <p>Más de una década asesorando jugadores en toda Venezuela</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links-contact">
+                        <a href="https://www.instagram.com/dr.animalitos/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/Dr.Aniamlitos/" class="social-icon" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@animalitotiktok" class="social-icon" target="_blank"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.youtube.com/@mishellealexandermatavera" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://t.me/dranimalitos" class="social-icon" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preguntas Frecuentes Section -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="mb-4" style="color: #1a472a;">Preguntas Frecuentes</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-4">
+                    <h5 style="color: #2d5a3b;">¿Cómo recibo los pronósticos?</h5>
+                    <p class="text-muted">Los pronósticos se envían por WhatsApp o Telegram en el formato que prefieras, incluyendo análisis detallados y recomendaciones específicas.</p>
+                </div>
+                <div class="mb-4">
+                    <h5 style="color: #2d5a3b;">¿Los datos garantizan ganancias?</h5>
+                    <p class="text-muted">Los pronósticos son basados en análisis estadístico y experiencia, pero las loterías son juegos de azar. No existen ganancias garantizadas.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-4">
+                    <h5 style="color: #2d5a3b;">¿Qué métodos de pago aceptan?</h5>
+                    <p class="text-muted">Aceptamos transferencias bancarias, pago móvil y criptomonedas. Todos los métodos son seguros y confidenciales.</p>
+                </div>
+                <div class="mb-4">
+                    <h5 style="color: #2d5a3b;">¿Ofrecen consultoría personalizada?</h5>
+                    <p class="text-muted">Sí, ofrezco asesoría personalizada según tu estilo de juego, presupuesto y loterías de preferencia.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer bg-light py-5" style="margin-top: 90px;">
+        <div class="container text-center py-5">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <a href="index.html" class="navbar-brand m-0">
+                        <h1 class="m-0 mt-n2 display-4 text-primary"><span class="text-secondary">LOTO</span>ANIMALITOS</h1>
+                    </a>
+                </div>
+                <div class="col-12 mb-4">
+                    <a class="btn btn-outline-secondary btn-social mr-2" href="https://www.instagram.com/dr.animalitos/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-secondary btn-social mr-2" href="https://www.facebook.com/Dr.Aniamlitos/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-secondary btn-social mr-2" href="https://www.tiktok.com/@animalitotiktok" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a class="btn btn-outline-secondary btn-social mr-2" href="https://www.youtube.com/@mishellealexandermatavera" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="col-12">
+                    <p>&copy; Copyright <strong><span>Dr. Animalitos</span></strong>. Todos los derechos reservados.
+                    <br><a href="https://www.google.com/intl/es-419/gmail/about/" target="_blank">alexandermata834@gmail.com</a>
+                    <br><a href="politica.html" style="color: #a0aec0;">Polica de Privacidad</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary px-2 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Manejo del formulario con Formspree (reemplazar action URL)
+        $(document).ready(function() {
+            $('#contactForm').on('submit', function(e) {
+                e.preventDefault();
+                var form = $(this);
+                var formData = form.serialize();
+                
+                // IMPORTANTE: Reemplaza 'tu-id-de-formspree' con tu ID real de Formspree
+                // Puedes crear una cuenta gratis en formspree.io
+                var actionUrl = 'https://formspree.io/f/tu-id-de-formspree';
+                
+                $.ajax({
+                    url: actionUrl,
+                    method: 'POST',
+                    data: formData,
+                    dataType: 'json',
+                    success: function(response) {
+                        $('#formMessage').removeClass('alert-danger').addClass('alert-success');
+                        $('#formMessage').html('<i class="fas fa-check-circle mr-2"></i> Mensaje enviado correctamente. Te responderé en menos de 24 horas.');
+                        $('#formMessage').show();
+                        $('#contactForm')[0].reset();
+                        setTimeout(function() {
+                            $('#formMessage').fadeOut();
+                        }, 5000);
+                    },
+                    error: function() {
+                        $('#formMessage').removeClass('alert-success').addClass('alert-danger');
+                        $('#formMessage').html('<i class="fas fa-exclamation-triangle mr-2"></i> Error al enviar el mensaje. Por favor, escríbeme directamente a WhatsApp o correo.');
+                        $('#formMessage').show();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

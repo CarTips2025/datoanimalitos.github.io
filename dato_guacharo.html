@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+     <title>Guacharo activo - Datos de Animalitos Hoy | Fijos, Explosivos y Calientes</title>
+    <meta name="keywords" content="resultados, loterías, venezuela, triple, sorteo, signo, zodiacal, millonario, dato, estadística, historico, anterior">
+    <meta name="description" content="Datos de animalitos para hoy: fijos, explosivos y calientes para La Granja Millonaria, Granjazo, Lotto Activo y Guácharo Activo. Resultados de loterías en Venezuela y estadísticas.">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, #0d2b1f, #1a472a);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .logo span {
+            color: #ffd700;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ffd700;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0;
+                gap: 15px;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            .logo h1 {
+                font-size: 1.4rem;
+            }
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3b 100%);
+            padding: 50px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* DateTime Bar */
+        .datetime-bar {
+            background: linear-gradient(135deg, #0d2b1f, #1a472a);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            color: white;
+        }
+        
+        .datetime-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+        
+        /* Status Bar */
+        .status-bar {
+            background: #f8f9fa;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        /* Main Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .data-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .data-card h2 {
+            font-size: 1.8rem;
+            color: #1a472a;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        /* Grid de números - 5 columnas para Guácharo */
+        .numeros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .numero-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 16px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .numero-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .numero-card .numero {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a472a;
+        }
+        
+        .numero-card img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            margin: 10px auto;
+        }
+        
+        .numero-card .animal {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+        
+        /* Base info */
+        .base-info {
+            background: #f0fdf4;
+            border-left: 4px solid #1a472a;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #1a472a;
+        }
+        
+        .base-info i {
+            margin-right: 8px;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(0,0,0,0.1);
+            border-radius: 50%;
+            border-top-color: #1a472a;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .no-data, .error-message {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            background: #f8f9fa;
+            border-radius: 16px;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            background: #fef2f2;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0d2b1f;
+            color: #a0aec0;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            background: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: #ffd700;
+            color: #1a472a;
+        }
+        
+        .copyright {
+            font-size: 0.85rem;
+        }
+        
+        .copyright span {
+            color: white;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .numeros-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .numeros-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1><span>LOTO</span>ANIMALITOS</h1>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="bi bi-list"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="service.html">Servicios</a></li>
+                <li><a href="about.html">Quiénes Somos</a></li>
+                <li><a href="dato_loto.html">Dato Loto Activo</a></li>
+                <li><a href="dato_guacharo.html" class="active">Dato Guácharo</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Dato Guácharo Activo</h1>
+            <p>Súper Fijos y Animalitos Explosivos para hoy</p>
+        </div>
+    </div>
+
+    <!-- DateTime Bar -->
+    <div class="datetime-bar">
+        <div class="datetime-item">
+            <i class="bi bi-calendar3"></i>
+            <span id="fechaActual"></span>
+        </div>
+        <div class="datetime-item">
+            <i class="bi bi-clock"></i>
+            <span id="horaActual"></span>
+        </div>
+    </div>
+
+    <!-- Status Bar -->
+    <div class="status-bar" id="statusBar">
+        <span class="loading-spinner"></span> Cargando datos...
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="data-card">
+            <h2>Súper Fijos para Guácharo Activo</h2>
+            <div id="resultado-contenido">
+                <div class="no-data">
+                    <div class="loading-spinner"></div>
+                    Cargando análisis estadístico...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://www.instagram.com/dr.animalitos/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/Dr.Aniamlitos/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@animalitotiktok" target="_blank"><i class="fab fa-tiktok"></i></a>
+        </div>
+        <div class="copyright">
+            &copy; Copyright <strong><span>Dr. Animalitos</span></strong>. Todos los derechos reservados.
+            <br><a href="mailto:alexandermata834@gmail.com" style="color: #a0aec0;">alexandermata834@gmail.com</a>
+            <br><a href="politica.html" style="color: #a0aec0;">Polica de Privacidad</a>
+        </div>
+    </footer>
+
+    <script>
+        // ===== FUNCIONES DE FECHA Y HORA =====
+        function actualizarFechaHora() {
+            const ahora = new Date();
+            const opcionesFecha = { year: 'numeric', month: 'long', day: 'numeric' };
+            const fechaFormateada = ahora.toLocaleDateString('es-ES', opcionesFecha);
+            const horas = String(ahora.getHours()).padStart(2, '0');
+            const minutos = String(ahora.getMinutes()).padStart(2, '0');
+            const segundos = String(ahora.getSeconds()).padStart(2, '0');
+            const horaFormateada = `${horas}:${minutos}:${segundos}`;
+            
+            const fechaElemento = document.getElementById('fechaActual');
+            const horaElemento = document.getElementById('horaActual');
+            
+            if (fechaElemento) fechaElemento.innerText = fechaFormateada;
+            if (horaElemento) horaElemento.innerText = horaFormateada;
+        }
+        
+        setInterval(actualizarFechaHora, 1000);
+        actualizarFechaHora();
+
+        // ===== MENÚ MÓVIL =====
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinksMenu = document.getElementById('navLinks');
+        
+        if (menuToggle && navLinksMenu) {
+            menuToggle.addEventListener('click', () => {
+                navLinksMenu.classList.toggle('show');
+            });
+        }
+
+        // ===== FUNCIONES PRINCIPALES PARA GUÁCHARO ACTIVO =====
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultadoContenedor = document.getElementById('resultado-contenido');
+            const statusBar = document.getElementById('statusBar');
+            
+            // Ruta de imágenes para Guácharo Activo
+            const baseImagePath = 'animalitos/animalitos_guacharo/';
+            
+            // Ruta del JSON
+            const JSON_URL = 'data/guacharo.json';
+            
+            function formatNumber(num) {
+                if (num === 0) return '0';
+                if (num === '00') return '00';
+                if (num < 10 && num > 0) return `0${num}`;
+                return num.toString();
+            }
+            
+            function normalizarNumero(valor) {
+                if (valor === '00' || valor === 0) return '00';
+                return parseInt(valor);
+            }
+            
+            // Diccionario de animales para Guácharo Activo (0,00 y 1-75)
+            function obtenerAnimal(num) {
+                const numStr = num.toString();
+                if (numStr === '00') num = 0;
+                else num = parseInt(num);
+                
+                const animales = {
+                    0: 'cóndor', 1: 'águila', 2: 'colibrí', 3: 'flamenco', 4: 'tucán',
+                    5: 'búho', 6: 'garza', 7: 'pelícano', 8: 'cardenal', 9: 'canario',
+                    10: 'loro', 11: 'perico', 12: 'paloma', 13: 'gaviota', 14: 'cisne',
+                    15: 'pato', 16: 'gallina', 17: 'gallo', 18: 'pavo', 19: 'codorniz',
+                    20: 'avestruz', 21: 'pingüino', 22: 'faisán', 23: 'halcón', 24: 'golondrina',
+                    25: 'ruiseñor', 26: 'cucú', 27: 'urraca', 28: 'cuervo', 29: 'lechucera',
+                    30: 'guacamaya', 31: 'cotorra', 32: 'azulejo', 33: 'chirulí', 34: 'carpintero',
+                    35: 'pitirre', 36: 'cernícalo', 37: 'albatros', 38: 'pelícano', 39: 'martín',
+                    40: 'caballo', 41: 'vaca', 42: 'toro', 43: 'oveja', 44: 'cabra',
+                    45: 'cerdo', 46: 'perro', 47: 'gato', 48: 'ratón', 49: 'conejo',
+                    50: 'jirafa', 51: 'elefante', 52: 'león', 53: 'tigre', 54: 'leopardo',
+                    55: 'pantera', 56: 'cebra', 57: 'rinoceronte', 58: 'hipopótamo', 59: 'camello',
+                    60: 'delfín', 61: 'ballena', 62: 'tiburón', 63: 'orca', 64: 'foca',
+                    65: 'cocodrilo', 66: 'iguana', 67: 'serpiente', 68: 'tortuga', 69: 'rana',
+                    70: 'mariposa', 71: 'abeja', 72: 'araña', 73: 'escorpión', 74: 'cangrejo',
+                    75: 'caracol'
+                };
+                return animales[num] || 'guácharo';
+            }
+            
+            // Algoritmo para Guácharo: Rango 0-75
+            // Si el número base es ≤ 37, suma +1,+2,+3
+            // Si es ≥ 38, resta -1,-2,-3
+            // Manejo especial para 0 y 00
+            function calcularSuperFijos(seed) {
+                let seedValue = (seed === '00') ? 0 : parseInt(seed);
+                let resultados = [seed];
+                
+                if (seedValue <= 37) {
+                    let current = seedValue;
+                    const incrementos = [1, 2, 3];
+                    for (let i = 0; i < incrementos.length; i++) {
+                        const suma = current + incrementos[i];
+                        if (suma <= 75) {
+                            const valor = (suma === 0) ? '00' : suma;
+                            resultados.push(valor);
+                            current = suma;
+                        }
+                    }
+                } else {
+                    let current = seedValue;
+                    const decrementos = [1, 2, 3];
+                    for (let i = 0; i < decrementos.length; i++) {
+                        const resta = current - decrementos[i];
+                        if (resta >= 0) {
+                            const valor = (resta === 0) ? '00' : resta;
+                            resultados.push(valor);
+                            current = resta;
+                        }
+                    }
+                }
+                
+                // Eliminar duplicados usando comparación especial
+                const unique = [];
+                const seen = new Set();
+                for (const item of resultados) {
+                    const key = item.toString();
+                    if (!seen.has(key)) {
+                        seen.add(key);
+                        unique.push(item);
+                    }
+                }
+                
+                return unique;
+            }
+            
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+            
+            function mostrarError(mensaje) {
+                resultadoContenedor.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        ${mensaje}
+                    </div>
+                `;
+                statusBar.innerHTML = '❌ Error al cargar los datos';
+            }
+            
+            async function cargarNumeroBase() {
+                try {
+                    statusBar.innerHTML = '<span class="loading-spinner"></span> Conectando con la base de datos...';
+                    
+                    const response = await fetch(JSON_URL + '?t=' + Date.now());
+                    if (!response.ok) throw new Error('No se pudo cargar los datos');
+                    
+                    const data = await response.json();
+                    
+                    if (!data.resultados || data.resultados.length === 0) {
+                        throw new Error('El archivo no contiene resultados');
+                    }
+                    
+                    const ultimoDia = data.resultados[data.resultados.length - 1];
+                    
+                    if (!ultimoDia || ultimoDia.length === 0) {
+                        throw new Error('El último día no tiene resultados');
+                    }
+                    
+                    let numeroBaseRaw = ultimoDia[ultimoDia.length - 1];
+                    let numeroBase = normalizarNumero(numeroBaseRaw);
+                    
+                    const displayNum = (numeroBase === '00') ? '00' : formatNumber(numeroBase);
+                    statusBar.innerHTML = `✅ Dr. Animalitos: Base ${displayNum} - ${obtenerAnimal(numeroBase)}`;
+                    
+                    return { numeroBase, numeroBaseRaw };
+                    
+                } catch (error) {
+                    console.error('Error:', error);
+                    mostrarError(`No se pudieron cargar los datos: ${error.message}`);
+                    throw error;
+                }
+            }
+            
+            function mostrarSuperFijos(numeroBase, numeroBaseRaw) {
+                const resultados = calcularSuperFijos(numeroBase);
+                
+                if (!resultados || resultados.length === 0) {
+                    mostrarError('No se pudieron generar los Súper Fijos');
+                    return;
+                }
+                
+                const shuffled = shuffleArray([...resultados]);
+                
+                let html = '<div class="numeros-grid">';
+                shuffled.forEach(num => {
+                    const displayNum = (num === '00') ? '00' : formatNumber(num);
+                    const numValue = (num === '00') ? 0 : parseInt(num);
+                    const nombreAnimal = obtenerAnimal(num);
+                    const imageUrl = `${baseImagePath}${displayNum}.png`;
+                    
+                    html += `
+                        <div class="numero-card">
+                            <div class="numero">${displayNum}</div>
+                            <img src="${imageUrl}" alt="${nombreAnimal}" 
+                                 onerror="this.src='animalitos/animalitos_guacharo/00.png'">
+                            <div class="animal">${nombreAnimal}</div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                
+                const baseDisplay = (numeroBaseRaw === '00') ? '00' : formatNumber(normalizarNumero(numeroBaseRaw));
+                const baseInfo = document.createElement('div');
+                baseInfo.className = 'base-info';
+                baseInfo.innerHTML = `<i class="fas fa-chart-line"></i> El más caliente: <strong>${baseDisplay}</strong> (${obtenerAnimal(numeroBase)})`;
+                
+                resultadoContenedor.innerHTML = html;
+                resultadoContenedor.appendChild(baseInfo);
+            }
+            
+            async function inicializar() {
+                try {
+                    const { numeroBase, numeroBaseRaw } = await cargarNumeroBase();
+                    mostrarSuperFijos(numeroBase, numeroBaseRaw);
+                } catch (error) {
+                    console.error('Inicialización fallida:', error);
+                }
+            }
+            
+            inicializar();
+        });
+    </script>
+</body>
+
+</html>

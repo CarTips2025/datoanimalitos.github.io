@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Quiénes Somos | LOTOANIMALITOS - 12 Años de Experiencia en Loterías</title>
+    <meta name="keywords" content="pronosticador loterías venezuela, Dr. Animalitos, experto en animalitos, lotto activo, granja millonaria, estadísticas loterías">
+    <meta name="description" content="Conoce la trayectoria del Dr. Animalitos, el pronosticador con más de 12 años de experiencia en loterías venezolanas. Especialista en datos, estadísticas y estrategias ganadoras.">
+    
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-7995132393364853">
+    
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    
+    <style>
+        /* Estilos para la página Quiénes Somos */
+        .page-header {
+            background: linear-gradient(135deg, #0d2b1f 0%, #1a472a 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path fill="white" d="M30,20 Q40,10 50,20 T70,20 T90,20 L90,80 L10,80 Z"/><circle cx="50" cy="40" r="12"/><circle cx="35" cy="65" r="8"/><circle cx="65" cy="65" r="8"/></svg>') repeat;
+            opacity: 0.1;
+        }
+        
+        .page-header h1 {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .page-header p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            padding: 0;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .breadcrumb-item a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item.active {
+            color: #ffd700;
+        }
+        
+        .breadcrumb-item + .breadcrumb-item::before {
+            color: rgba(255,255,255,0.5);
+            content: "›";
+        }
+        
+        .about-section {
+            padding: 80px 0;
+        }
+        
+        .about-img {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .about-img:hover img {
+            transform: scale(1.02);
+        }
+        
+        .experience-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #ffd700, #ffed4a);
+            color: #1a472a;
+            padding: 15px 25px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .experience-badge .years {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        
+        .experience-badge .text {
+            font-size: 0.8rem;
+        }
+        
+        .about-content h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a472a;
+            margin-bottom: 20px;
+        }
+        
+        .about-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d5a3b;
+            margin: 25px 0 15px;
+        }
+        
+        .about-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .signature {
+            margin-top: 30px;
+            font-family: 'Georgia', serif;
+            font-size: 1.5rem;
+            color: #1a472a;
+            font-style: italic;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 60px 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #2d5a3b;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .mission-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .mission-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 20px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .mission-card:hover {
+            background: linear-gradient(135deg, #1a472a, #2d5a3b);
+            color: white;
+        }
+        
+        .mission-card:hover .mission-icon {
+            background: white;
+            color: #1a472a;
+        }
+        
+        .mission-card:hover h4,
+        .mission-card:hover p {
+            color: white;
+        }
+        
+        .mission-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1a472a, #2d5a3b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .mission-icon i {
+            font-size: 35px;
+            color: white;
+        }
+        
+        .mission-card h4 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1a472a;
+        }
+        
+        .mission-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .timeline-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .timeline-year {
+            min-width: 100px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #2d5a3b;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 20px 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            flex: 1;
+        }
+        
+        .timeline-content h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1a472a;
+        }
+        
+        .timeline-content p {
+            color: #666;
+            margin: 0;
+        }
+        
+        .values-section {
+            padding: 80px 0;
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .value-icon {
+            font-size: 45px;
+            color: #2d5a3b;
+            margin-bottom: 20px;
+        }
+        
+        .value-item h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1a472a;
+        }
+        
+        .value-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .testimonial-section {
+            background: linear-gradient(135deg, #1a472a, #2d5a3b);
+            padding: 80px 0;
+            color: white;
+        }
+        
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px;
+            text-align: center;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #ffd700;
+        }
+        
+        .ad-container {
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .about-content h2 {
+                font-size: 1.8rem;
+            }
+            .timeline-item {
+                flex-direction: column;
+            }
+            .timeline-year {
+                margin-bottom: 10px;
+            }
+            .stat-card {
+                margin-bottom: 20px;
+            }
+            .mission-card {
+                margin-bottom: 20px;
+            }
+        }
+        
+        .award-badge {
+            display: inline-block;
+            background: #ffd700;
+            color: #1a472a;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light shadow p-lg-0">
+                <a href="index.html" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 display-4 text-primary"><span class="text-secondary">LOTO</span>ANIMALITOS</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="index.html" class="nav-item nav-link">Inicio</a>
+                        <a href="service.html" class="nav-item nav-link">Servicios</a>
+                    </div>
+                    <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
+                        <h1 class="m-0 display-4 text-primary"><span class="text-secondary">LOTO</span>ANIMALITOS</h1>
+                    </a>
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="about.html" class="nav-item nav-link active">Quiénes Somos</a>
+                        <a href="contact.html" class="nav-item nav-link">Contacto</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container text-center">
+            <h1>Quiénes Somos</h1>
+            <p>Más de una década transformando la forma de jugar loterías</p>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center">
+                    <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Quiénes Somos</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <!-- AdSense Banner -->
+    <div class="container ad-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7995132393364853" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-7995132393364853"
+            data-ad-slot="8481248642"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="about-img">
+                        <img src="img/chanet.jpg" alt="Dr. Animalitos - Pronosticador de Loterías">
+                        <div class="experience-badge">
+                            <div class="years">12+</div>
+                            <div class="text">Años de<br>Experiencia</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <span class="award-badge">Trayectoria Profesional</span>
+                        <h2>El Arte de Predecir lo Impredecible</h2>
+                        <p>Mi nombre es el Dr. Animalitos, y desde hace más de 12 años me dedico al análisis profundo de las loterías venezolanas. Lo que comenzó como una curiosidad matemática se transformó en una metodología única que combina estadística avanzada, patrones históricos y un profundo entendimiento del comportamiento de los números.</p>
+                        
+                        <p>A lo largo de mi carrera, he desarrollado sistemas de predicción que han ayudado a miles de jugadores a tomar decisiones más informadas. Mi enfoque no se basa en la suerte, sino en el análisis meticuloso de datos históricos y la identificación de patrones recurrentes en sorteos de Lotto Activo, Granja Millonaria, Guácharo Activo y otras loterías.</p>
+                        
+                        <h3>Mi Filosofía de Trabajo</h3>
+                        <p>Creo firmemente que el conocimiento es poder. Por eso, mi misión es compartir las herramientas y el análisis necesario para que cada persona pueda maximizar sus oportunidades. No ofrezco fórmulas mágicas ni garantías falsas, sino información verificada y estrategias probadas.</p>
+                        
+                        <div class="signature">
+                            Dr. Animalitos
+                            <div style="font-size: 0.9rem; color: #999;">Pronosticador y Analista de Loterías</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-number">15k+</div>
+                        <div class="stat-label">Jugadores Asesorados</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Loterías Analizadas</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Transparencia y Ética</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mission Section -->
+    <div class="mission-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h4>Misión</h4>
+                        <p>Proporcionar herramientas y análisis estadísticos de alta calidad para que los jugadores de loterías en Venezuela tomen decisiones más informadas y estratégicas.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h4>Visión</h4>
+                        <p>Convertirme en el referente principal de análisis de loterías en Latinoamérica, reconocido por la precisión de mis datos y la honestidad de mi trabajo.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Valores</h4>
+                        <p>Honestidad, transparencia, dedicación y mejora continua. Mis pronósticos son siempre basados en datos reales, nunca en promesas falsas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AdSense In-Article -->
+    <div class="container ad-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7995132393364853" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-7995132393364853"
+            data-ad-slot="1234567890"
+            data-ad-format="rectangle"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- Timeline Section -->
+    <div class="timeline-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 style="color: #1a472a;">Mi Trayectoria</h2>
+                    <p class="text-muted">Una década de dedicación al análisis de loterías</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2013</div>
+                        <div class="timeline-content">
+                            <h4>Inicios en el Análisis</h4>
+                            <p>Comencé estudiando patrones y estadísticas de Lotto Activo como un pasatiempo, descubriendo recurrencias fascinantes en los sorteos.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2016</div>
+                        <div class="timeline-content">
+                            <h4>Primeros Pronósticos Públicos</h4>
+                            <p>Empecé a compartir mis análisis en redes sociales, ayudando a amigos y familiares a mejorar sus estrategias de juego.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2019</div>
+                        <div class="timeline-content">
+                            <h4>Metodología Propia</h4>
+                            <p>Desarrollé mi sistema único de análisis combinando estadística, numerología y seguimiento de patrones históricos.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-content">
+                            <h4>Expansión Digital</h4>
+                            <p>Lancé mi plataforma en línea para llegar a más jugadores interesados en datos confiables y análisis profundos.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h4>Consolidación</h4>
+                            <p>Hoy soy reconocido como uno de los pronosticadores más confiables de Venezuela, con miles de seguidores y una comunidad activa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Values Section -->
+    <div class="values-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 style="color: #1a472a;">Lo Que Me Hace Diferente</h2>
+                    <p class="text-muted">Principios que guían cada uno de mis pronósticos</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Análisis Basado en Datos</h4>
+                        <p>Mis pronósticos no son corazonadas. Cada recomendación está respaldada por estadísticas reales y patrones históricos documentados.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h4>Compromiso con la Ética</h4>
+                        <p>No prometo ganancias garantizadas. Educar sobre juego responsable es parte fundamental de mi labor.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Comunidad y Soporte</h4>
+                        <p>Más que pronósticos, he construido una comunidad donde los jugadores pueden aprender y compartir experiencias.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial Section -->
+    <div class="testimonial-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center mb-5">
+                    <h2 style="color: white;">Lo Que Dicen Mis Seguidores</h2>
+                    <p style="color: rgba(255,255,255,0.8);">Historias reales de personas que han mejorado sus estrategias</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "Gracias al análisis del Dr. Animalitos, he podido entender mejor los patrones de Lotto Activo. Sus datos son claros y siempre basados en estadísticas reales."
+                        </div>
+                        <div class="testimonial-author">Carlos M.</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "Lo que más valoro es su honestidad. No te vende sueños falsos, te da herramientas reales para que tú tomes tus propias decisiones."
+                        </div>
+                        <div class="testimonial-author">María F.</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">
+                            "Sigo sus pronósticos desde hace dos años. La consistencia y la calidad de su análisis no tiene comparación. Totalmente recomendado."
+                        </div>
+                        <div class="testimonial-author">Roberto G.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AdSense Bottom Banner -->
+    <div class="container ad-container">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7995132393364853" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-7995132393364853"
+            data-ad-slot="8481248642"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- Footer Start -->
+    <div class="container-fluid footer bg-light py-5" style="margin-top: 90px;">
+        <div class="container text-center py-5">
+            <div class="row">
+                <div class="col-12 mb-4">
+                    <a href="index.html" class="navbar-brand m-0">
+                        <h1 class="m-0 mt-n2 display-4 text-primary"><span class="text-secondary">LOTO</span>ANIMALITOS</h1>
+                    </a>
+                </div>
+                <div class="col-12 mb-4">
+                    <a class="btn btn-outline-secondary btn-social mr-2" href="https://www.instagram.com/dr.animalitos/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-secondary btn-social mr-2" href="https://www.facebook.com/Dr.Aniamlitos/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-secondary btn-social mr-2" href="https://www.tiktok.com/@animalitotiktok" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a class="btn btn-outline-secondary btn-social mr-2" href="https://www.youtube.com/@mishellealexandermatavera" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="col-12">
+                    <p>&copy; Copyright <strong><span>Dr. Animalitos</span></strong>. Todos los derechos reservados.
+                    <br><a href="https://www.google.com/intl/es-419/gmail/about/" target="_blank">alexandermata834@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-secondary px-2 back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
