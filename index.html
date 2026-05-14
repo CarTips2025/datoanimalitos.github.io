@@ -279,24 +279,38 @@
             }
         }
 
-        /* Estilo sutil para la fecha y hora */
-        .datetime-sutil {
-            font-size: 0.8rem;
-            color: #6c757d;
-            background: rgba(0,0,0,0.03);
-            padding: 4px 10px;
-            border-radius: 20px;
-            display: inline-block;
-            letter-spacing: 0.5px;
-            font-weight: 400;
-            margin-left: 15px;
-            white-space: nowrap;
+        /* ESTILOS NUEVOS PARA EL RELOJ VISIBLE ENTRE SECCIONES */
+        .datetime-visible {
+            text-align: center;
+            padding: 20px 0;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-top: 3px solid #ffd700;
+            border-bottom: 3px solid #ffd700;
         }
+        
+        .datetime-visible .datetime-sutil {
+            font-size: 1.3rem;
+            color: white;
+            background: rgba(0,0,0,0.3);
+            padding: 10px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            letter-spacing: 1px;
+            font-weight: 600;
+            font-family: 'Poppins', monospace;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
         @media (max-width: 768px) {
-            .datetime-sutil {
-                font-size: 0.7rem;
-                padding: 2px 8px;
-                margin-left: 5px;
+            .datetime-visible {
+                padding: 12px 0;
+            }
+            .datetime-visible .datetime-sutil {
+                font-size: 1rem;
+                padding: 6px 18px;
             }
         }
     </style>
@@ -326,13 +340,11 @@
                         <a href="contact.html" class="nav-item nav-link">Contacto</a>
                     </div>
                 </div>
-                <!-- Fecha y hora sutil -->
-                <div class="datetime-sutil" id="fechaHoraActual"></div>
+                <!-- EL RELOJ YA NO ESTÁ AQUÍ, SE HA MOVIDO DESPUÉS DEL CARRUSEL -->
             </nav>
         </div>
     </div>
     <!-- Navbar End -->
-
 
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5 pb-5">
@@ -343,7 +355,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3"></h4>
-                            <h1 class="display-3 text-white mb-md-4">Resultados de Loterías</h1>
+                            <h1 class="display-3 text-white mb-md-4"></h1>
                         </div>
                     </div>
                 </div>
@@ -352,7 +364,7 @@
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
                             <h4 class="text-white text-uppercase mb-md-3"></h4>
-                            <h1 class="display-3 text-white mb-md-4">Datos y Animalitos</h1>
+                            <h1 class="display-3 text-white mb-md-4"></h1>
                         </div>
                     </div>
                 </div>
@@ -372,6 +384,12 @@
     </div>
     <!-- Carousel End -->
 
+    <!-- ====================================================== -->
+    <!-- RELOJ Y FECHA VISIBLE - UBICADO EXACTAMENTE AQUÍ, ENTRE CAROUSEL Y ABOUT -->
+    <!-- ====================================================== -->
+    <div class="datetime-visible">
+        <div class="datetime-sutil" id="fechaHoraActual"></div>
+    </div>
 
     <!-- About Start -->
     <div class="container-fluid py-5">
@@ -823,7 +841,7 @@
                 iframe.attr('src', '');
             });
 
-            // Script para mostrar fecha y hora actual
+            // Script para mostrar fecha y hora actual en el nuevo contenedor
             function actualizarFechaHora() {
                 const ahora = new Date();
                 const opcionesFecha = { year: 'numeric', month: '2-digit', day: '2-digit' };
