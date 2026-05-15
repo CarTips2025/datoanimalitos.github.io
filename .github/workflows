@@ -36,7 +36,7 @@ jobs:
       - name: 📤 Commit y push
         run: |
           git config --global user.name "Dr. Animalitos Bot"
-          git config --global user.email "bot@tuanimalito.github.io"
+          git config --global user.email "bot@datoanimalitos.github.io"
           git add data/*.json temp_resultados/
           if git diff --cached --quiet; then
             echo "📭 Sin cambios"
