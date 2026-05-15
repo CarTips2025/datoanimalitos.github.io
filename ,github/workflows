@@ -1,46 +1,21 @@
-name: 🤖 Actualización Automática de Resultados
+name: 🔧 PRUEBA - ¿Funciona GitHub Actions?
 
 on:
-  schedule:
-    - cron: '0 3 * * *'  # 11:00 PM hora Venezuela (3:00 UTC)
-  workflow_dispatch:  # Permite ejecución manual
-
-permissions:
-  contents: write
+  workflow_dispatch:
 
 jobs:
-  actualizar:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: 📥 Clonar repositorio
-        uses: actions/checkout@v4
-
-      - name: 🔧 Configurar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: 📦 Instalar dependencias
+      - name: 📝 Crear archivo de prueba
         run: |
-          cd scripts
-          npm init -y
-          npm install node-fetch@3.3.2
-
-      - name: 🔍 Obtener resultados de la API
-        run: node scripts/obtener_de_api.js
-        env:
-          NODE_OPTIONS: --experimental-fetch
-
-      - name: 📤 Commit y push de cambios
+          echo "Test: $(date)" > test.txt
+          echo "✅ Si ves este mensaje, GitHub Actions funciona"
+          
+      - name: 📤 Subir archivo de prueba
         run: |
-          git config --global user.name "Dr. Animalitos Bot"
-          git config --global user.email "bot@tuanimalito.github.io"
-          git add data/*.json temp_resultados/
-          git status
-          if git diff --cached --quiet; then
-            echo "📭 Sin cambios para commit"
-          else
-            git commit -m "🤖 Actualización automática $(date +'%Y-%m-%d %H:%M')"
-            git push
-            echo "✅ Cambios subidos exitosamente"
-          fi
+          git config --global user.name "Test Bot"
+          git config --global user.email "test@bot.com"
+          git add test.txt
+          git commit -m "Test de GitHub Actions"
+          git push
