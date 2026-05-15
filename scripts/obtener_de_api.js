@@ -6,7 +6,7 @@
  * - Granjazo Millonario (10 números) ✅ API oficial (con lista completa)
  * - Lotto Activo (12 números) ✅ API OFICIAL con orden correcto
  * 
- * MI REY, CON ESTA VERSIÓN LOS 3 DÍAS QUEDAN CORRECTAMENTE ROTADOS 🚀
+ * VERSIÓN CORREGIDA - CON SOPORTE PARA WORKFLOW
  */
 
 const fs = require('fs');
@@ -218,7 +218,7 @@ async function obtenerResultadosPasados(loteria, diasAtras = 1) {
 }
 
 // ============================================
-// ACTUALIZACIÓN DE ARCHIVOS JSON - VERSIÓN CORREGIDA
+// ACTUALIZACIÓN DE ARCHIVOS JSON
 // ============================================
 
 function actualizarJSON(loteria, nuevosNumeros) {
@@ -232,13 +232,10 @@ function actualizarJSON(loteria, nuevosNumeros) {
   try {
     const actual = JSON.parse(fs.readFileSync(ruta, 'utf8'));
     
-    // ✅ TOMAMOS LOS 3 DÍAS ACTUALES
+    // TOMAMOS LOS 3 DÍAS ACTUALES
     const [diaViejo, diaMedio, diaReciente] = actual.resultados;
     
-    // ✅ ROTACIÓN CORRECTA:
-    // - El día medio pasa a ser el más viejo
-    // - El día reciente pasa a ser el del medio
-    // - El nuevo día se agrega como el más reciente
+    // ROTACIÓN CORRECTA
     actual.resultados = [diaMedio, diaReciente, nuevosNumeros];
     actual.fecha_actualizacion = new Date().toISOString();
     
@@ -247,6 +244,46 @@ function actualizarJSON(loteria, nuevosNumeros) {
     return true;
   } catch (error) {
     console.error(`❌ Error actualizando ${loteria}.json:`, error.message);
+    return false;
+  }
+}
+
+// ============================================
+// FUNCIÓN PARA CREAR ARCHIVO DEL WORKFLOW
+// ============================================
+
+function crearArchivoWorkflow(resultados) {
+  try {
+    // Crear directorio temp_resultados
+    const tempDir = path.join(__dirname, '..', 'temp_resultados');
+    if (!fs.existsSync(tempDir)) {
+      fs.mkdirSync(tempDir, { recursive: true });
+      console.log(`📁 Directorio creado: ${tempDir}`);
+    }
+    
+    // Preparar datos para el workflow
+    const datosWorkflow = {};
+    for (const loteria of ['guacharo', 'granja', 'granjazo', 'lotto']) {
+      if (resultados[loteria]) {
+        datosWorkflow[loteria] = resultados[loteria];
+      }
+    }
+    
+    // Guardar archivo principal que espera el workflow
+    const workflowFile = path.join(tempDir, 'nuevos.json');
+    fs.writeFileSync(workflowFile, JSON.stringify(datosWorkflow, null, 2));
+    console.log(`✅ Archivo creado: ${workflowFile}`);
+    
+    // También guardar archivos individuales por si acaso
+    for (const [loteria, numeros] of Object.entries(datosWorkflow)) {
+      const individualFile = path.join(tempDir, `${loteria}_nuevos.json`);
+      fs.writeFileSync(individualFile, JSON.stringify({ [loteria]: numeros }, null, 2));
+      console.log(`✅ Archivo creado: ${individualFile}`);
+    }
+    
+    return true;
+  } catch (error) {
+    console.error(`❌ Error creando archivo del workflow:`, error.message);
     return false;
   }
 }
@@ -265,6 +302,7 @@ async function main() {
   const loterias = ['guacharo', 'granja', 'granjazo', 'lotto'];
   const numerosEsperados = { guacharo: 12, granja: 10, granjazo: 10, lotto: 12 };
 
+  // OBTENER RESULTADOS
   for (const loteria of loterias) {
     console.log(`\n🔍 Buscando ${CONFIG[loteria].nombre}...`);
     
@@ -289,6 +327,7 @@ async function main() {
     }
   }
 
+  // ACTUALIZAR ARCHIVOS JSON
   console.log('\n📦 ACTUALIZANDO ARCHIVOS JSON...');
   console.log('==========================================');
   
@@ -301,6 +340,12 @@ async function main() {
     }
   }
 
+  // CREAR ARCHIVO PARA WORKFLOW (¡PARTE CORREGIDA!)
+  console.log('\n📝 PREPARANDO ARCHIVOS PARA WORKFLOW...');
+  console.log('==========================================');
+  crearArchivoWorkflow(resultados);
+
+  // RESUMEN FINAL
   console.log('\n🎉 RESUMEN FINAL');
   console.log('==========================================');
   console.log(`✅ Loterías actualizadas: ${actualizados} de ${loterias.length}`);
@@ -309,11 +354,22 @@ async function main() {
     const estado = resultados[loteria] ? '✅' : '❌';
     console.log(`   ${estado} ${CONFIG[loteria].nombre}`);
   }
+  
+  // Verificar que el archivo del workflow existe
+  const workflowFile = path.join(__dirname, '..', 'temp_resultados', 'nuevos.json');
+  if (fs.existsSync(workflowFile)) {
+    console.log('\n✅ ARCHIVO WORKFLOW VERIFICADO: temp_resultados/nuevos.json existe');
+  } else {
+    console.log('\n❌ ERROR: No se pudo crear temp_resultados/nuevos.json');
+    process.exit(1);
+  }
+  
   console.log('');
   console.log('⏰ Próxima ejecución: Esta noche a las 11:00 PM');
   console.log('==========================================');
 }
 
+// EJECUTAR SCRIPT
 main().catch(error => {
   console.error('💥 Error fatal:', error);
   process.exit(1);
