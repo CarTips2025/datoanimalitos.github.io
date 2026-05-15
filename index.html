@@ -2,16 +2,12 @@
 <html lang="es">
 
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7995132393364853"
-     crossorigin="anonymous"></script>
-    <meta name="google-adsense-account" content="ca-pub-7995132393364853">
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>Datos de Animalitos Hoy | Análisis de Probabilidades y Pronósticos</title>
-    <meta name="description" content="✅ Consigue los mejores DATOS DE ANIMALITOS para hoy. Análisis estadístico, pirámide numérica y pronósticos para Lotto Activo, La Granjita, Selva Plus y Ruleta Royal.">
+    <title>Lotoanimalitos - Datos de Animalitos Hoy | Fijos, Explosivos y Calientes</title>
     <meta name="keywords" content="resultados, loterías, venezuela, triple, sorteo, signo, zodiacal, millonario, dato, estadística, historico, anterior">
-    <link rel="canonical" href="https://datoanimalitos.github.io/index.html" />
+    <meta name="description" content="Datos de animalitos para hoy: fijos, explosivos y calientes para La Granja Millonaria, Granjazo, Lotto Activo y Guácharo Activo. Resultados de loterías en Venezuela y estadísticas.">
     
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -85,7 +81,7 @@
             transition: opacity 0.3s ease;
         }
 
-                /* Estilos para botón súper fijos con borde */
+        /* Estilos para botón súper fijos con borde */
         .btn-borde-super-fijos {
             display: inline-block;
             padding: 10px 24px;
@@ -317,10 +313,97 @@
                 padding: 6px 18px;
             }
         }
+
+        /* ============================================ */
+        /* REPRODUCTOR MP3 MINIMALISTA - ESQUINA INFERIOR IZQUIERDA */
+        /* ============================================ */
+        .mp3-player-mini {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            border-radius: 50px;
+            padding: 8px 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .mp3-player-mini:hover {
+            background: rgba(0, 0, 0, 0.85);
+            transform: scale(1.02);
+        }
+
+        .player-controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .player-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+        }
+
+        .player-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .player-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Ocultar el audio nativo */
+        #bg-music {
+            display: none;
+        }
+
+        /* Para móviles, un poco más pequeño */
+        @media (max-width: 768px) {
+            .mp3-player-mini {
+                bottom: 15px;
+                left: 15px;
+                padding: 6px 12px;
+            }
+            .player-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- REPRODUCTOR MP3 MINIMALISTA - ESQUINA INFERIOR IZQUIERDA -->
+    <div class="mp3-player-mini" id="mp3Player">
+        <div class="player-controls">
+            <button class="player-btn" id="playPauseBtn" title="Reproducir / Pausar">
+                <i class="fas fa-play"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Audio oculto -->
+    <audio id="bg-music" loop preload="auto" autoplay>
+        <source src="musica/musica1.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio HTML5.
+    </audio>
+
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
@@ -334,13 +417,13 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto py-0">
                         <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                         <a href="about.html" class="nav-item nav-link">Somos</a>
+                        <a href="service.html" class="nav-item nav-link">Servicios</a>
                     </div>
                     <a href="index.html" class="navbar-brand mx-5 d-none d-lg-block">
                         <h1 class="m-0 display-4 text-primary"><span class="text-secondary">LOTO</span>ANIMALITOS</h1>
                     </a>
                     <div class="navbar-nav mr-auto py-0">
-                         <a href="service.html" class="nav-item nav-link">Servicios</a>
+                           <a href="about.html" class="nav-item nav-link">Somos</a>
                         <a href="contact.html" class="nav-item nav-link">Contacto</a>
                     </div>
                 </div>
@@ -393,6 +476,9 @@
     <!-- ====================================================== -->
     <div class="datetime-visible">
         <div class="datetime-sutil" id="fechaHoraActual"></div>
+        <div id="resultado-contenido">
+        <div class="no-data">Consultando los últimos datos fijos de los animalitos...</div>
+    </div>
     </div>
 
     <!-- About Start -->
@@ -400,53 +486,17 @@
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
-                    <h1 class="section-title position-relative text-center mb-5">Técnicas y Estrategias para ser un Ganador</h1>
+                    <h1 class="section-title position-relative text-center mb-5">LOS MEJORES DATOS PARA LAS LOTERIAS DE LOS ANIMALITOS</h1>
                 </div>
-                <img class="thumbnail-img" src="img/bloc/mini7.webp" alt="Miniatura video 1">
-            </div>
-            <div class="row">
-                <div class="col-lg-4 py-5">
-                    <h4 class="font-weight-bold mb-3">Aprende a hacer Tripletas</h4>
-                    <h5 class="text-muted mb-3">El juego de la Tripleta en las loterías de animalitos como Lotto Activo o La Granjita</h5>
-                    <p>Es una modalidad de apuesta combinada o tipo "parley", donde debes acertar tres animales distintos en un lapso de 11 sorteos consecutivos. Si los tres animales salen en ese rango de tiempo, ganas 50 veces lo apostado.</p>
-                      <a href="aprende1.html" class="btn-borde-super-fijos">Ver Estrategia</a>
-                </div>
-                <div class="col-lg-4 py-5">
-                    <h4 class="font-weight-bold mb-3">Aprende a sacar Súper Fijos</h4>
-                    <h5 class="text-muted mb-3">En las loterías de animalitos como Lotto Activo, La Granjita</h5>
-                    <p>Selva Plus, entre otras en Venezuela, los "súper fijos" son pronósticos o recomendaciones de alto porcentaje de acierto proporcionados por analistas, "dateros" o sistemas estadísticos. Se consideran "súper fijos" porque se basan en el análisis de los animalitos que más han salido recientemente, o en cálculos matemáticos de probabilidad, lo que sugiere que tienen una mayor probabilidad de salir en los próximos sorteos.</p>
-                    <a href="aprende1.html" class="btn-borde-super-fijos">Ver Estrategia</a>
-                </div>
-                 <div class="col-lg-4 py-5">
-                    <h4 class="font-weight-bold mb-3">Aprende a sacar Súper Fijos</h4>
-                    <h5 class="text-muted mb-3">En las loterías de animalitos como Lotto Activo, La Granjita</h5>
-                    <p>Selva Plus, entre otras en Venezuela, los "súper fijos" son pronósticos o recomendaciones de alto porcentaje de acierto proporcionados por analistas, "dateros" o sistemas estadísticos. Se consideran "súper fijos" porque se basan en el análisis de los animalitos que más han salido recientemente, o en cálculos matemáticos de probabilidad, lo que sugiere que tienen una mayor probabilidad de salir en los próximos sorteos.</p>
-                    <a href="info1.html" class="btn-borde-super-fijos">Ver Estrategia</a>
+                <div class="col-lg-7">
+                    <h6 class="section-title position-relative text-center mb-5">Lotto Activo, Granja Millonaria, Loto Activo, La Granjita, Guacharo Activo, datos Granjazo Millonario.</h6>
                 </div>
             </div>
         </div>
     </div>
     <!-- About End -->
 
-    <!-- Video Modal Start -->
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>        
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Video Modal End -->
-
-         <!-- Services Start -->
+    <!-- Services Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row">
@@ -501,11 +551,68 @@
     </div>
     <!-- Services End -->
 
+     <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <h1 class="section-title position-relative text-center mb-5">Datos, Resultados de lotería de Animalitos, Revisa los resultados de los sorteos de animalitos de hoy de Lotto Activo.</h1>
+                </div>
+                 <div class="col-lg-7">
+                    <h6 class="section-title position-relative text-center mb-5">Aprende a hacer Tripletas, Aprende a sacar Súper Fijos, Aprende a sacar Súper Fijos.</h6>
+                </div>
+                <img class="thumbnail-img" src="img/bloc/mini7.webp" alt="Miniatura video 1">
+            </div>
+            <div class="row">
+                <div class="col-lg-4 py-5">
+                    <h4 class="font-weight-bold mb-3">Aprende a hacer Tripletas</h4>
+                    <h5 class="text-muted mb-3">El juego de la Tripleta en las loterías de animalitos como Lotto Activo o La Granjita</h5>
+                    <p>Es una modalidad de apuesta combinada o tipo "parley", donde debes acertar tres animales distintos en un lapso de 11 sorteos consecutivos. Si los tres animales salen en ese rango de tiempo, ganas 50 veces lo apostado.</p>
+                      <a href="aprende1.html" class="btn-borde-super-fijos">Ver Estrategia</a>
+                </div>
+                <div class="col-lg-4 py-5">
+                    <h4 class="font-weight-bold mb-3">Aprende a sacar Súper Fijos</h4>
+                    <h5 class="text-muted mb-3">En las loterías de animalitos como Lotto Activo, La Granjita</h5>
+                    <p>Selva Plus, entre otras en Venezuela, los "súper fijos" son pronósticos o recomendaciones de alto porcentaje de acierto proporcionados por analistas, "dateros" o sistemas estadísticos. Se consideran "súper fijos" porque se basan en el análisis de los animalitos que más han salido recientemente, o en cálculos matemáticos de probabilidad, lo que sugiere que tienen una mayor probabilidad de salir en los próximos sorteos.</p>
+                    <a href="aprende1.html" class="btn-borde-super-fijos">Ver Estrategia</a>
+                </div>
+                 <div class="col-lg-4 py-5">
+                    <h4 class="font-weight-bold mb-3">Aprende a sacar Súper Fijos</h4>
+                    <h5 class="text-muted mb-3">En las loterías de animalitos como Lotto Activo, La Granjita</h5>
+                    <p>Selva Plus, entre otras en Venezuela, los "súper fijos" son pronósticos o recomendaciones de alto porcentaje de acierto proporcionados por analistas, "dateros" o sistemas estadísticos. Se consideran "súper fijos" porque se basan en el análisis de los animalitos que más han salido recientemente, o en cálculos matemáticos de probabilidad, lo que sugiere que tienen una mayor probabilidad de salir en los próximos sorteos.</p>
+                    <a href="info1.html" class="btn-borde-super-fijos">Ver Estrategia</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+    <!-- Video Modal Start -->
+    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>        
+                    <!-- 16:9 aspect ratio -->
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always" allow="autoplay" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Video Modal End -->
+
     <!-- SECCIÓN DE VIDEOS DE YOUTUBE - PORTFOLIO 1 CONVERTIDA -->
     <div class="container-fluid py-5">
         <div class="container">
             <div class="section-title">
-                <h2>Aprende a ser un constante ganador con las mejores técnicas</h2>
+                <h1>Aprende a ser un constante ganador con las mejores técnicas</h1>
+            </div>
+             <div class="section-title">
+                <h6>Aprender con los mejores tutoriales, clases y técnica.</h6>
             </div>
             <div class="row">
                 <!-- Video 1 -->
@@ -572,7 +679,10 @@
     <div class="container-fluid py-5 bg-light">
         <div class="container">
             <div class="section-title">
-                <h2>Estadísticas, Probabilidades Animalitos</h2>
+                <h1>Estadísticas, Probabilidades Animalitos</h1>
+            </div>
+             <div class="section-title">
+                <h6>Probabilidades Animalitos, Loto activo, Guacharo activo, Granja Millonaria, Granjazo.</h6>
             </div>
             <div class="row">
                 <!-- Artículo 1 -->
@@ -633,7 +743,10 @@
     <div class="container-fluid py-5 bg-light">
         <div class="container">
             <div class="section-title">
-                <h2>Aprende Estrategias y Técnicas</h2>
+                <h1>Aprende Estrategias y Técnicas</h1>
+            </div>
+            <div class="section-title">
+                <h6>Estrategias avanzadas, por los mejores maestros del mundo.</h6>
             </div>
             <div class="row">
                 <!-- Artículo 1 -->
@@ -776,6 +889,76 @@
     <script src="js/main.js"></script>
     
     <script>
+        // ============================================
+        // REPRODUCTOR MP3 MINIMALISTA - REPRODUCCIÓN AUTOMÁTICA GARANTIZADA
+        // ============================================
+        (function() {
+            const audio = document.getElementById('bg-music');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            const icon = playPauseBtn.querySelector('i');
+            
+            let isPlaying = false;
+            let autoPlayAttempted = false;
+            
+            // Configurar volumen y loop
+            audio.volume = 0.5;
+            audio.loop = true;
+            
+            // Función para actualizar el ícono y estado
+            function updateUI(playing) {
+                isPlaying = playing;
+                if (playing) {
+                    icon.className = 'fas fa-pause';
+                } else {
+                    icon.className = 'fas fa-play';
+                }
+            }
+            
+            // Función para iniciar reproducción
+            function startPlayback() {
+                audio.play().then(() => {
+                    updateUI(true);
+                }).catch(err => {
+                    console.log("Error al reproducir:", err);
+                    updateUI(false);
+                });
+            }
+            
+            // Intento de auto-reproducción al cargar la página
+            // El atributo 'autoplay' en el audio ayuda, pero lo reforzamos
+            const autoPlayPromise = audio.play();
+            
+            if (autoPlayPromise !== undefined) {
+                autoPlayPromise.then(() => {
+                    updateUI(true);
+                    autoPlayAttempted = true;
+                }).catch(err => {
+                    console.log("Auto-reproducción bloqueada por el navegador. Esperando interacción.");
+                    updateUI(false);
+                    
+                    // Estrategia: Al hacer clic en cualquier parte de la página, reproducir
+                    const playOnInteraction = function() {
+                        startPlayback();
+                        document.removeEventListener('click', playOnInteraction);
+                        document.removeEventListener('touchstart', playOnInteraction);
+                    };
+                    document.addEventListener('click', playOnInteraction);
+                    document.addEventListener('touchstart', playOnInteraction);
+                });
+            }
+            
+            // Evento para el botón Play/Pause
+            playPauseBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (isPlaying) {
+                    audio.pause();
+                    updateUI(false);
+                } else {
+                    startPlayback();
+                }
+            });
+        })();
+
         // Función para cargar videos de YouTube - Configuración anti Error 153
         window.loadYouTubeVideo = function(videoId, containerId) {
             const container = document.getElementById(containerId);
