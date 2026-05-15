@@ -22,40 +22,25 @@ jobs:
 
       - name: 📦 Instalar dependencias
         run: |
-          mkdir -p scripts
           cd scripts
-          echo '{"dependencies":{"node-fetch":"^3.3.2"}}' > package.json
-          npm install
+          npm init -y
+          npm install node-fetch@3.3.2
 
       - name: 🔍 Obtener resultados de la API
-        id: obtener
         run: node scripts/obtener_de_api.js
-        continue-on-error: true
+        env:
+          NODE_OPTIONS: --experimental-fetch
 
-      - name: 📤 Actualizar archivos JSON
-        if: success()
-        run: |
-          if [ -f temp_resultados/nuevos.json ]; then
-            NUEVOS=$(cat temp_resultados/nuevos.json)
-            
-            if [ -f data/guacharo.json ]; then
-              node -e "
-                const fs = require('fs');
-                const nuevos = JSON.parse(process.env.NUEVOS);
-                const actual = JSON.parse(fs.readFileSync('data/guacharo.json'));
-                const [diaViejo, diaMedio, diaReciente] = actual.resultados;
-                actual.resultados = [diaMedio, diaReciente, nuevos.guacharo];
-                actual.fecha_actualizacion = new Date().toISOString();
-                fs.writeFileSync('data/guacharo.json', JSON.stringify(actual, null, 2));
-              "
-              echo "✅ guacharo.json actualizado"
-            fi
-          fi
-
-      - name: 📤 Commit y push
+      - name: 📤 Commit y push de cambios
         run: |
           git config --global user.name "Dr. Animalitos Bot"
           git config --global user.email "bot@tuanimalito.github.io"
-          git add data/*.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "🤖 Actualización automática $(date +'%d/%m/%Y')"
-          git push
+          git add data/*.json temp_resultados/
+          git status
+          if git diff --cached --quiet; then
+            echo "📭 Sin cambios para commit"
+          else
+            git commit -m "🤖 Actualización automática $(date +'%Y-%m-%d %H:%M')"
+            git push
+            echo "✅ Cambios subidos exitosamente"
+          fi
