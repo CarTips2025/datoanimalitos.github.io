@@ -1,0 +1,46 @@
+name: 🤖 Actualización Automática de Resultados
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Clonar repositorio
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: 🔧 Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📦 Instalar dependencias
+        run: |
+          cd scripts
+          npm init -y
+          npm install node-fetch@3.3.2
+
+      - name: 🔍 Obtener resultados de la API
+        run: node scripts/obtener_de_api.js
+        env:
+          NODE_OPTIONS: --experimental-fetch
+
+      - name: 📤 Commit y push
+        run: |
+          git config --global user.name "Dr. Animalitos Bot"
+          git config --global user.email "bot@tuanimalito.github.io"
+          git add data/*.json temp_resultados/
+          if git diff --cached --quiet; then
+            echo "📭 Sin cambios"
+          else
+            git commit -m "🤖 Actualización $(date)"
+            git push
+          fi
