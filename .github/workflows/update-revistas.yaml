@@ -1,0 +1,47 @@
+name: Actualizar Revistas
+
+on:
+  schedule:
+    - cron: '0 6,12,18 * * *'
+  workflow_dispatch:
+
+jobs:
+  actualizar-revistas:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Clonar repositorio
+      uses: actions/checkout@v3
+      
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Instalar dependencias
+      run: |
+        pip install requests
+        
+    - name: Ejecutar script de actualizacion
+      run: |
+        python scripts/update_revistas.py
+        
+    - name: Verificar cambios en revistas.json
+      id: verificar
+      run: |
+        if git diff --name-only | grep -q "data/revistas.json"; then
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+        else
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Commit y push de cambios
+      if: steps.verificar.outputs.has_changes == 'true'
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "actions@github.com"
+        git add data/revistas.json
+        git commit -m "Actualizacion automatica de revistas - $(date +'%Y-%m-%d %H:%M:%S')"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
